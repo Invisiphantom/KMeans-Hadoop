@@ -2,11 +2,9 @@ import faiss
 import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
-from flask_cors import CORS
 from sentence_transformers import SentenceTransformer
 
 app = Flask(__name__)
-CORS(app)
 
 # 加载 MiniLM 模型
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
