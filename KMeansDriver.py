@@ -63,4 +63,4 @@ for i in range(max_iterations):
 
 
 # 将最后一次迭代结果 保存为txt文件
-subprocess.run(f"hdfs dfs -get {new_centers_path} centers_out.txt", shell=True)
+subprocess.run(f"hdfs dfs -cat {centers_path} > centers_out.txt", shell=True)

@@ -38,3 +38,6 @@ if points:
 
 for i in range(len(center_dict)):
     print(f"{i}\t{','.join(map(str, center_dict[i]))}")
+
+
+    
