@@ -33,7 +33,7 @@
 <body>
     <div class="container">
         <h1>文本相似性检索</h1>
-        <input type="text" id="query" placeholder="输入查询文本">
+        <input type="text" id="query" placeholder="输入查询文本" onkeypress="handleKeyPress(event)">
         <button onclick="search()">搜索</button>
         <div id="results"></div>
     </div>
@@ -48,6 +48,12 @@
             });
             const results = await response.json();
             displayResults(results);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                search();
+            }
         }
 
         function displayResults(results) {

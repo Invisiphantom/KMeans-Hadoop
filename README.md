@@ -2,12 +2,13 @@
 # KMeans-Hadoop
 
 
-| Data                      | Env    | Description                |
-| ------------------------- | ------ | -------------------------- |
-| stackoverflow-mysql.jsonl | Local  | 原始文本数据               |
-| data.npy                  | Both   | 生成的二维向量数据         |
-| data.txt                  | Remote | HDFS使用的向量数据文本文件 |
-| centers.txt               | Remote | HDFS使用的中心点文本文件   |
+| Data                      | Env    | Description                       |
+| ------------------------- | ------ | --------------------------------- |
+| stackoverflow-mysql.jsonl | Local  | 原始文本数据                      |
+| data_384.npy              | Both   | MiniLM 生成的向量数据(187181,384) |
+| data.npy                  | Both   | UMAP 生成的向量数据(187181,2)     |
+| data.txt                  | Remote | HDFS使用的向量数据文本文件        |
+| centers.txt               | Remote | HDFS使用的中心点文本文件          |
 
 
 

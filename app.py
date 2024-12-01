@@ -1,21 +1,18 @@
-import pickle
 import faiss
 import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 from sentence_transformers import SentenceTransformer
 
 app = Flask(__name__)
+CORS(app)
 
 # 加载 MiniLM 模型
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
-# 加载 UMAP 模型
-with open("umap_model.pkl", "rb") as f:
-    umap_model = pickle.load(f)
-
 # 加载向量和文本数据
-data = np.load("data.npy")
+data = np.load("data_384.npy")
 input_df = pd.read_json("stackoverflow-mysql.jsonl", lines=True)
 
 # 构建 Faiss 索引
@@ -32,7 +29,6 @@ def home():
 def search():
     query = request.json["query"]
     query_vector = model.encode([query])
-    query_vector = umap_model.transform(query_vector)
 
     # 使用 Faiss 检索
     k = 10  # 返回前10个相似项
