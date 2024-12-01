@@ -23,7 +23,7 @@ def hdfs_parse_centers(hdfs_path):
 
 
 # 最大迭代次数
-max_iterations = 3
+max_iterations = 5
 data_path = "/user/hadoop/kmeans/input/data.txt"
 centers_path = "/user/hadoop/kmeans/input/centers.txt"
 
